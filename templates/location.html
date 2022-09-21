@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>This is a webpage</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename = 'style.css') }}">
+</head>
+<body>
+<center><h1 id = "heading1">IMAGES</h1></center>
+<div class="media-scroller">
+{% for img_name in img_path %}
+    <img src="{{url_for('static', filename = img_name)}}">
+{% endfor %}
+
+    </div>
+<br>
+<center><h1 id = "heading2">GOOGLE MAP</h1></center>
+<div id="googleMap"></div>
+<hr>
+<script>
+function myMap() {
+var mapProp= {
+  center:new google.maps.LatLng({{lat}}, {{lng}}),
+  zoom:17,
+};
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+var location = {lat: {{lat}}, lng: {{lng}}};
+
+
+var marker = new google.maps.Marker({
+position: location,
+map: map
+});
+
+console.log({{lat}},{{lng}});
+}
+
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClmZ8ei6C0f10xmuuDGoifOu8zB0m5oEc&callback=myMap"></script>
+</div>
+<center><h1 id = "heading3"> 3DMAPS </h1></center>
+<div class="media-scroller">
+{% for mp_name in map_path %}
+    <img src="{{url_for('static', filename = mp_name)}}">
+{% endfor %}
+
+    </div>
+
+</body>
+</html>
