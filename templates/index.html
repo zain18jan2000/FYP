@@ -1,0 +1,23 @@
+<!doctype>
+<html>
+<title>
+    THIS IS WEB PAGE 
+</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename = 'style.css') }}">
+<body>
+
+<form class="grid" action="/location" method="POST">
+    <center>
+<label for="name"><h1 id = "label">Enter The Location </h1> </label>
+</center>
+ <center>
+ <input type="text" name="location" id="name">
+         </center>
+        <center>
+  <input type="submit" name="Enter" value="Select">
+    </center>
+
+</form>
+
+</body>>
+</html>
